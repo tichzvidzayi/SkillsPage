@@ -1,7 +1,17 @@
 <template>
   <div class="hello">
-   {{name}}
 
+<div class="holder">
+<ul>
+
+<li v-for="(data, index) in skills" :key="index"> {{index}}.{{data.skill}} </li>
+
+</ul>
+</div>
+
+   {{name}}
+ 
+     {{btnState ? "Button disabled":"Button enabled!!"}}
 <button v-on:click="ModifyName" v-bind:disabled="btnState"> ModifyName </button>
 
 
@@ -15,26 +25,19 @@ export default {
 
      return {
        name: 'Coffee is Brown',
-       btnState: true
+       btnState: false,
+
+       skills:[ {"skill": "Vue.js"},  
+                 { "skill": "Laravel"}, 
+                 {"skill": "CodeIgniter"}, 
+                  {"skill": "CakePHP" }     
+        ]
      }
    }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style src = "./Skills.css" scoped>
+
 </style>
